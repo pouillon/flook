@@ -105,6 +105,11 @@ ifeq (,$(findstring aotus,$(LIBS)))
 # Add clean-target dependency
 clean: clean-aotus
 
+# Add distclean target dependency
+distclean: clean
+	rm -f setup.make tst_*.lua
+	rm -rf aotus/obj
+
  # Now create the correct linker flags etc. for internal linking
  INCLUDES += -Iaotus/obj
 endif
