@@ -46,6 +46,15 @@ _LUA_PLATFORM := solaris
 endif
 endif
 
+ifeq ($(LUA_DIR),)
+_LIBALL_EXT_LUA_LIB := ../aotus/obj/external/lua-5.3.5/src/liblua.a
+else
+ifeq ($(LUA_LIB_EXT_STATIC),)
+_LIBALL_EXT_LUA_LIB := $(LUA_DIR)/liblua.a
+else
+_LIBALL_EXT_LUA_LIB := $(LUA_LIB_EXT_STATIC)
+endif
+endif
 
 # Define internal aotus library build
 .PHONY: prep-aotus lib-aotus clean-aotus
@@ -120,7 +129,7 @@ endif
 .PHONY: liball
 liball: $(FLOOK_LIB_STATIC)
 	($(MKDIR) $(MKDIR_FLAG_PARENT) .tmp_link ; $(RM) $(RM_FLAG_FORCE) $(FLOOK_LIB_STATIC_ALL) ; cd .tmp_link ; \
-	$(AR) x ../aotus/obj/external/lua-5.3.5/src/liblua.a ; \
+	$(AR) x $(_LIBALL_EXT_LUA_LIB) ; \
 	$(AR) x ../aotus/obj/libaotus.a ; \
 	$(AR) x ../$(FLOOK_LIB_STATIC) ; \
 	$(AR) r ../$(FLOOK_LIB_STATIC_ALL) *.o ; \

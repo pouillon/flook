@@ -94,6 +94,14 @@ By adding these flags to your `setup.make`
 
 an external library for the Lua environment will be used.
 
+If you also need to specify explicitly the Lua library to link, you can add
+the following flag to your `setup.make`, e.g.:
+
+    LUA_LIB_EXT_STATIC = /usr/lib/x86_64-linux-gnu/liblua5.3.a
+
+If only define `LUA_DIR`, the build system will assume that the static Lua
+library is named `liblua.a`.
+
 ### Linking ###
 
 flook consists intrinsically of 4 libraries:
