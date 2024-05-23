@@ -1,1 +1,8 @@
-docs/
+/aotus/obj/
+/docs/
+/flook.inc
+/flook.mod
+/flook.o
+/libflook.a
+/libflookall.a
+/setup.make

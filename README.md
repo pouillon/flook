@@ -99,7 +99,7 @@ the following flag to your `setup.make`, e.g.:
 
     LUA_LIB_EXT_STATIC = /usr/lib/x86_64-linux-gnu/liblua5.3.a
 
-If only define `LUA_DIR`, the build system will assume that the static Lua
+If you only define `LUA_DIR`, the build system will assume that the static Lua
 library is named `liblua.a`.
 
 ### Linking ###
